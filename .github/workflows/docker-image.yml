@@ -9,32 +9,29 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
     
-    - name: Login to Docker Hub
-      run: docker login -u jaeun -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - name: Login to Docker Hub
+        run: docker login -u jaeun -p ${{ secrets.DOCKER_HUB_PASSWORD }}
       
-    - name: Build Docker Image
-      run: docker build -t jaeun/chat-server:latest .
+      - name: Build Docker Image
+        run: docker build -t jaeun/chat-server:latest .
 
-    - name: Push to Docker Hub
-      run: docker push jaeun/chat-server:latest
+      - name: Push to Docker Hub
+        run: docker push jaeun/chat-server:latest
 
-    - name: SSH and run on server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        password: ${{ secrets.SERVER_PASSWORD }}
-        script: |
-          docker stop chatserver || true
-          docker rm chatserver || true              
-          docker rmi jaeun/chat-server:latest || true
-          docker run -d -p 8081:8081 --network-alias=chat-server --name chatserver jaeun/chat-server:latest
-
-    
+      - name: SSH and run on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            docker stop chatserver || true
+            docker rm chatserver || true              
+            docker rmi jaeun/chat-server:latest || true
+            docker run -d -p 8081:8081 --network-alias=chat-server --name chatserver jaeun/chat-server:latest
