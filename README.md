@@ -1,4 +1,4 @@
-# Web Socket Project - [링크](http://175.45.205.116/chat)
+# Web Socket Project - [링크](http://175.45.192.68/chat)
 
 실시간 소통을 위한 웹 채팅 기능 구현(웹 프로젝트[dohyeong](https://github.com/Jaeun-Choi98/dohyeong?tab=readme-ov-file)의 side project)
 
