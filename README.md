@@ -1,5 +1,5 @@
 # Web Socket Project - [링크](http://175.45.192.68/chat)
-
+### 현재 네이버 클라우드 서버를 사용할 수 없어서 녹화한 영상을 첨부합니다. 해당 기능은 1분 17초부터 나옵니다.-> [녹화 영상 보러가기](https://youtu.be/fOaK8yrq2zo) 
 실시간 소통을 위한 웹 채팅 기능 구현(웹 프로젝트[dohyeong](https://github.com/Jaeun-Choi98/dohyeong?tab=readme-ov-file)의 side project)
 
 <br>
